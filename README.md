@@ -7,33 +7,33 @@ For now, this is a proof that it works and is doable without privileged data, bu
 Example:
 
 ```bash
-$ bash calculate.sh "744 Garfield"
+$ time bash calculate.sh "744 Garfield" | jq .
 {
-    "Police_Service": 391,
-    "Fire_Service": 188,
-    "Road_Maintenance": 115,
-    "Public_Transit": 105,
-    "Organizational_Support_Service": 66,
+    "Police Service": 391,
+    "Fire Service": 188,
+    "Road Maintenance": 115,
+    "Public Transit": 105,
+    "Organizational Support Service": 66,
     "Recreation": 64,
-    "Parks_and_Urban_Forestry": 53,
-    "Roadway_Snow_Removal_and_Ice_Clearing": 53,
+    "Parks and Urban Forestry": 53,
+    "Roadway Snow Removal and Ice Clearing": 53,
     "Libraries": 44,
-    "Solid_Waste_Collection": 33,
-    "City_Beautification": 26,
-    "Council_Services": 20,
-    "Street_Lighting*": 20,
-    "Assiniboine_Park_Conservancy": 20,
-    "Medical_Response": 17,
-    "Remaining_Arts,_Ent_&_Culture": 12,
-    "Insect_Control": 11,
-    "Assessment_and_Taxation": 10,
-    "311_Contact_Centre": 7,
-    "Community_Liveability": 6,
-    "Economic_Development": 2,
-    "Animal_Services": 2,
-    "City_Planning,_Insp_&_Housing": 2,
+    "Solid Waste Collection": 33,
+    "City Beautification": 26,
+    "Council Services": 20,
+    "Street Lighting*": 20,
+    "Assiniboine Park Conservancy": 20,
+    "Medical Response": 17,
+    "Remaining Arts, Ent & Culture": 12,
+    "Insect Control": 11,
+    "Assessment and Taxation": 10,
+    "311 Contact Centre": 7,
+    "Community Liveability": 6,
+    "Economic Development": 2,
+    "Animal Services": 2,
+    "City Planning, Insp & Housing": 2,
     "Cemeteries": 1,
-    "Golf_Services": 1
+    "Golf Services": 1
 }
 
 real    0m1.621s
