@@ -8,4 +8,4 @@ taxes_data=$(wget -qO- 'http://www.winnipegassessment.com/Asmttax/pdfs/rates/201
 tax_factor=$(echo "$taxes_data" | cut -d';' -f`echo "$taxes_data" | head -n1 | tr ';' '\n' | grep -n "Single-Family" | cut -d':' -f1` | tail -n2 | sed 's/\([0-9]*\)%/0.0\1/' | paste -sd '*' | bc)
 assessed_value=$(wget -qO- "https://data.winnipeg.ca/resource/d4mq-wa44.json?\$where=full_address like '`echo "$addr" | tr 'a-z' 'A-Z'`%25'" | jq -r .[0].total_assessed_value)
 tax_amount=$(echo "$tax_factor*$assessed_value/100" | bc)
-echo "$budgets" | tr ' ;' '_ ' | while read dept budget avg_amt pct; do echo "\"$dept\":`echo $pct*$tax_amount/100 | bc`"; done | paste -sd ',' | sed 's/^/{/;s/$/}/' | jq .
+echo "$budgets" | tr ' ;' '_ ' | while read dept budget avg_amt pct; do echo "\"`echo $dept | tr '_' ' '`\":`echo $pct*$tax_amount/100 | bc`"; done | paste -sd ',' | sed 's/^/{/;s/$/}/'
